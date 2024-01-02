@@ -1,42 +1,72 @@
-// Hàm (function) trong Javascript
-
-function showDialog() {
-    alert("Dialog");
-}
-
-function showMessage(message) {
-    console.log(message);
-}
-
-showMessage("Hi anh em F8!");
-
-// message là tham số.
-// "Hi anh em F8!" là đối số (argument)
-
-// Tham số
 /**
- * Tham số
- *   - Định nghĩa
- *   - Kiểu dữ liệu
- *   - Tính private
- *   - 1 tham số
- *   - Nhiều tham số
- * 
- * Argument?
- * - Đối tượng argument
- * - Vòng lặp for
+ * Một số điều cần biết về function
+ * 1. Khi function đặt trùng tên?
+ *   - Function định nghĩa sau cùng ghi đè function định nghĩa trước
+ * 2. Khai báo biến trong hàm?
+ *   - Có 
+ *   - Phạm vi sử dụng biến ở trong function đó
+ * 3. Định nghĩa hàm trong hàm?
+ *  - Có
  */
 
 
-function writeLog(message){
-    console.log(message);
+// 1. Khi function đặt trùng tên?
+
+function showMessage(){
+    console.log("Message 1");
 }
 
-writeLog("Hi anh em F8!");
-function writeMessage(){
-    for (const param of arguments) {
-        console.log(param);
+function showMessage(){
+    console.log("Message 2");
+}
+
+// 2. Khai báo biến trong hàm?
+function showMessage(){
+    let message = 'Duy Dang'
+    console.log("Message 1" + message);
+}
+
+// 3 . Định nghĩa hàm trong hàm
+function showMessage(){
+    function showMessage2() {
+        console.log('Message 2');
     }
+    showMessage2();
 }
 
-writeMessage("Hi anh','F8!'");
+
+/**
+ * Các loại Function
+ * 1 . Declare function
+ * 2 . Expression function
+ * 3 . Arrow function
+ */
+
+
+// 1 . Declare function : Có thể gọi trước khi nó định nghĩa còn expression function thì không thể
+
+showMessage();
+
+function showMessage() {
+    console.log('Declare function');
+}
+
+// 2 . Expression function
+
+var showMessage2 = function() {
+    console.log('Expression function');
+};
+
+
+setTimeout(function(){
+
+});
+
+var myObject = {
+    myFunction: function(){
+
+    }
+};
+
+showMessage();
+showMessage2();
