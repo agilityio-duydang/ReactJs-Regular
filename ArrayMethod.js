@@ -187,23 +187,108 @@ var listCoureses = ["Javascript", "PHP", "Dark"];
 
 console.log(listCoureses.includes("Dark"));
 
-Array.prototype.map2 =  function (callback){
+Array.prototype.map2 = function (callback) {
   let result = [];
   for (let index = 0; index < this.length; index++) {
-    let item =  callback(this[index],index);
+    let item = callback(this[index], index);
     result.push(item);
   }
   return result;
-}
+};
 
-var htmls = listCoureses.map(function(coures) { 
+var htmls = listCoureses.map(function (coures) {
   return `<h2>${coures}</h2>`;
-})
+});
 
-console.log(htmls.join(''));
+console.log(htmls.join(""));
 
-var html2s = listCoureses.map2(function(coures) { 
+var html2s = listCoureses.map2(function (coures) {
   return `<h2>${coures}</h2>`;
-})
+});
 
-console.log(html2s.join(''));
+console.log(html2s.join(""));
+
+courses.forEach(function (course) {
+  console.log(course);
+});
+
+Array.prototype.forEach2 = function (callback) {
+  for (const index in this) {
+    return callback(this[index], index);
+  }
+};
+
+courses.forEach2(function (course) {
+  console.log(course);
+});
+
+Array.prototype.filter2 = function (callback) {
+  let outPut = [];
+  for (const index in this) {
+    if (this.hasOwnProperty(index)) {
+      let result = callback(this[index], index, this);
+      if (result) {
+        outPut.push(this[index]);
+      }
+    }
+  }
+  return outPut;
+};
+
+let filterCoures = courses.filter(function (coures, index, array) {
+  return coures.name == "Javascript";
+});
+
+console.log(filterCoures);
+
+let filter = courses.filter2(function (coures, index, array) {
+  return coures.name == "Javascript";
+});
+console.log(filter);
+
+Array.prototype.some2 = function (callback) {
+  for (const index in this) {
+    if (this.hasOwnProperty(index)) {
+      if (callback(this[index], index, this)) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+let somes2 = courses.some(function (coures, index, array) {
+  return coures.name == "Javascript";
+});
+
+console.log(somes2);
+
+let somes = courses.some2(function (coures, index, array) {
+  return coures.name == "Javascript";
+});
+
+console.log(somes);
+
+Array.prototype.every2 = function (callback) {
+  for (const index in this) {
+    if (this.hasOwnProperty(index)) {
+      if(!callback(this[index], index, this))
+      {
+        return false;
+      }
+    }
+  }
+  return true;
+};
+
+let every = courses.every(function (coures, index, array) {
+  return coures.coin >= 100
+});
+
+console.log(every);
+
+let every2 = courses.every2(function (coures, index, array) {
+  return coures.coin >= 100
+});
+
+console.log(every2);

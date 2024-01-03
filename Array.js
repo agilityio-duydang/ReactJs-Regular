@@ -43,32 +43,53 @@ console.log(languages.shift());
 
 // 6 . Unshift : Thêm 1 hoặc nhiều element vào đầu mảng và trả về độ dài mới của mảng
 
-console.log(languages.unshift('JavaScript','PHP'))
+console.log(languages.unshift('JavaScript','HTML','CSS'))
 
-// 7 . Splicing : Xoá / Chèn phần tử vào mảng 
-
-languages.splice(1);
+// 7 . Splicing : Xoá / Chèn phần tử vào mảng
+console.log('Array before splicing : splice(languages.length)'); 
 console.log(languages);
-languages.splice(1,0);
+//Nếu chỉ pass 1 parmater thì lấy bấy nhiêu phần tử
+languages.splice(languages.length);
+console.log('Array after splicing : splice(languages.length)');
 console.log(languages);
+console.log('Array before splicing : splice(1,1)'); 
+console.log(languages);
+// Nếu pass 2 parmater thì từ vị trí index của parmater thứ nhất xoá bây nhiêu phần tử từ parmater thứ hai truyền vào
+languages.splice(1,1);
+console.log('Array after splicing : splice(1,1)');
+console.log(languages);
+console.log('Array before splicing : splice(1,0,\'Dart\')'); 
+console.log(languages);
+// Nếu pass 3 parmater thì từ vị trí index của parmater thứ nhất xoá bây nhiêu phần tử từ parmater thứ hai truyền vào và thêm phần tử vào từ parmater thứ ba vào sau đó
 languages.splice(1,0,'Dart');
+console.log('Array after splicing : splice(1,0,\'Dart\')');
 console.log(languages);
-languages.splice(1,1,'Dart');
+console.log('Array before splicing : splice(1,1,\'C#\')'); 
+console.log(languages);
+languages.splice(1,1,'C#');
+console.log('Array after splicing : splice(1,1,\'C#\')');
 console.log(languages);
 
 // 8 .  Concat : Nối mảng với nhau
 
 let languages2 = [
-    'Dart',
+    'Java',
     'Ruby'
 ];
 
+languages.push('HTML','CSS');
 console.log(languages.concat(languages2));
-console.log(languages.concat(languages));
+// console.log(languages.concat(languages));
 
 // Slicing :  Cắt toàn bộ hoặc một vài element của mảng
-
+console.log('Arry before slicing :')
+console.log(languages);
+// languages.slice(1);
 console.log(languages.slice(1));
+console.log('Arry after slicing :')
+console.log(languages);
+console.log(languages.slice(1,3));
+console.log(languages);
 
 // Coppy mảng
 console.log(languages.slice(0));
